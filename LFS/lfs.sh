@@ -2,7 +2,7 @@
 
 export LFS=/mnt/lfs
 export LFS_TGT=x86_64-lfs-linux-gnu
-export LFS_DISK=/dev/sda1
+export LFS_DISK=/dev/sda
 #check if the file is munted or not , all mounted files can be checked on /proc/mounts/
 
 if ! grep -q "$LFS" /proc/mounts; then
@@ -27,3 +27,5 @@ mkdir -pv $LFS/var
 case $(uname -m) in
 x86_64) mkdir -pv $LFS/lib64 ;;
 esac
+
+#after the directories are created now start installing stuff

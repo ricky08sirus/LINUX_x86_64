@@ -7,6 +7,7 @@ p
 1
 
 +100M
+a
 n 
 p 
 2 
@@ -20,3 +21,5 @@ EOF
 #after the partitions we will make fle systems
 sudo mkfs -t ext2 -F "${LFS_DISK}1"
 sudo mkfs -t ext2 -F "${LFS_DISK}2"
+
+#in the first run whole partition is mounted so to run it again unmount it again
