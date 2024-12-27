@@ -30,8 +30,10 @@ esac
 
 #after the directories are created now start installing stuff
 
-cp -rf *.sh packages.csv "$LFS/sources"
+cp -rf *.sh chapter* packages.csv "$LFS/sources"
 cd "$LFS/sources"
 export PATH="$LFS/tools/bin:$PATH"
 
 source download.sh
+
+source packageinstall.sh binutils
