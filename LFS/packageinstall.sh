@@ -24,9 +24,17 @@ cat packages.csv | grep -i "^$PACKAGE" | grep -i -v "\.patch;" | while read line
   fi
   #run the scipt from the directory
 
-  echo "Compiling $PACKAGE"
+  echo "Compiling $PApCKAGE"
   sleep 5
-  source "../chapter$CHAPTER/$PACKAGE.sh"
+
+  mkdir -pv "../log/chapter$CHAPTER/" #creates the log file
+  if ! source "../chapter$CHAPTER/$PACKAGE.sh" 2>&1 | tee "../log/chapter$CHAPTER/$PACKAGE.log"; then
+    echo "Compiling $PACKAGE Failed!"
+    popd
+    exit 1
+  fi
+
+  #source "../chapter$CHAPTER/$PACKAGE.sh"
   echo "Done Compiling $PACKAGE"
   popd
 
