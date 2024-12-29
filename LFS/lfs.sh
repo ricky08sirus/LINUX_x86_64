@@ -33,7 +33,8 @@ esac
 cp -rf *.sh chapter* packages.csv "$LFS/sources"
 cd "$LFS/sources"
 export PATH="$LFS/tools/bin:$PATH"
-
+#binutils
 source download.sh
-
-source packageinstall.sh binutils
+for package in gcc linux-api-headers glibc libstdc++; do
+  source packageinstall.sh 5 $package
+done

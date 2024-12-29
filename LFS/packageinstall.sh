@@ -4,7 +4,7 @@ CHAPTER=$1
 PACKAGE=$2
 cat packages.csv | grep -i "^$PACKAGE" | grep -i -v "\.patch;" | while read line; do
   #NAME="$(echo "$line" | cut -d\; -f1)"
-  VERSION="$(echo "$line" | cut -d\; -f2)"
+  export VERSION="$(echo "$line" | cut -d\; -f2)"
   URL="$(echo "$line" | cut -d\; -f3 | sed "s/@/$VERSION/g")"
   #MD5SUM="$(echo "$line" | cut -d\; -f4)"
   CACHEFILE="$(basename "$URL")"
@@ -24,7 +24,7 @@ cat packages.csv | grep -i "^$PACKAGE" | grep -i -v "\.patch;" | while read line
   fi
   #run the scipt from the directory
 
-  echo "Compiling $PApCKAGE"
+  echo "Compiling $PACKAGE"
   sleep 5
 
   mkdir -pv "../log/chapter$CHAPTER/" #creates the log file
