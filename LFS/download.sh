@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Function to clean and validate URL
 clean_url() {
   echo "$1" | tr -d ' \r'
