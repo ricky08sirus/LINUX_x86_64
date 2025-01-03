@@ -1,4 +1,5 @@
 # Function to clean and validate URL
+set -e
 clean_url() {
   echo "$1" | tr -d ' \r'
 }
